@@ -1,4 +1,4 @@
-remote_theme: CloudCannon/base-jekyll-template@main
+remote_theme: CloudCannon / base-jekyll-template@main
 plugins:
 - jekyll-remote-theme
 
