@@ -1,0 +1,42 @@
+<input id="photo" type="file">
+<div id="results"></div>
+
+<script type="module">
+    import { client } from "https://esm.run/@gradio/client"; // Importing Gradio Client
+
+    async function loaded(reader) {
+        try {
+            console.log("Connecting to API...");
+            const app = await client("https://faiyaz10-cap-recognizer.hf.space/");
+            console.log("API Connection Successful! Sending Image..."); 
+            // Extracting Base64 from reader
+            const base64Image = reader.result.split(',')[1]; // Removing metadata
+
+            // Send Base64 Image to API
+            const result = await app.predict("/predict", [
+                base64Image // Sending Base64 instead of Blob
+            ]);
+            console.log("API Response:", result); 
+
+            // Extracting label
+            const label = result?.data?.[0]?.label || "No label found"; 
+            document.getElementById("results").innerHTML = `
+                <br><img src="${reader.result}" width="500">
+                <p>${label}</p>`;
+        } catch (error) {
+            console.error("Error fetching prediction:", error);
+            document.getElementById("results").innerHTML = `<p style="color: red;">Failed to get prediction. Check console.</p>`;
+        }
+    }
+
+    function read() {
+        const reader = new FileReader();
+        reader.addEventListener('load', () => loaded(reader));
+        const photo = document.getElementById("photo").files[0];
+        if (photo) {
+            reader.readAsDataURL(photo);
+        }
+    }
+
+    document.getElementById("photo").addEventListener("input", read);
+</script>
