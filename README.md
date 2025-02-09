@@ -33,7 +33,7 @@ The model can classify 20 different types of caps and they are: <br/>
 
 # Model Deployment
 I deployed to model to HuggingFace Spaces Gradio App. The implementation can be found in `documentation` or [here](https://huggingface.co/spaces/Faiyaz10/Cap_recognizer)<br/>
-<img src="app/modelpic.png" width="800" height="350">
+<img src="app/modelpic.png" width="800" height="300">
 
 # API integration with Github Pages
 The deployed model API is integrated into [here](https://faiyaz-zaman.github.io/caprecognizer/) in Github Pages Website, implementations can be found in `docs` folder.
