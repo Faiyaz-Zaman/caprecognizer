@@ -29,11 +29,11 @@ The model can classify 20 different types of caps and they are: <br/>
 **Data Augmentation**: fastai provides default augmentation which operates in GPU <br/>
 # Training and Cleaning
 **Training**: Fined tuned a resnet34 model for 5 epochs (3 times) and got ~89% accuracy. <br/>
-**Data Cleaning**: This part took me the highest time. Since I collected data from Google Images, there were many noises. Also, there were images that contained animation and CGI, which is not my goal right now for this project. I cleaned and updated data using fastai ImageClassifierCleaner. I cleaned the data each time after training or fine tuning, except for the last time which was the final iteration of the model<br/>
+**Data Cleaning**: This part took me the highest time. Since I collected data from Google Images, there were many noises. Also, some images contained animation and CGI, which is not my goal right now for this project. I cleaned and updated data using fastai ImageClassifierCleaner. I cleaned the data each time after training or fine-tuning, except for the last time which was the final iteration of the model<br/>
 
 # Model Deployment
 I deployed to model to HuggingFace Spaces Gradio App. The implementation can be found in `documentation` or [here](https://huggingface.co/spaces/Faiyaz10/Cap_recognizer)<br/>
-<img src="app/modelpic.png", width="600",height="300">
+<img src="app/modelpic.png" width="800" height="400">
 
 # API integration with Github Pages
 The deployed model API is integrated into [here](https://faiyaz-zaman.github.io/caprecognizer/) in Github Pages Website, implementations can be found in `docs` folder.
